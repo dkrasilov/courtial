@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  postgres:
+    build: postgres
+    environment:
+      POSTGRES_PASSWORD: dbpass
+      POSTGRES_USER: dbuser
+
+  users:
+    build: ../courtial-user-service
+    links:
+      - postgres

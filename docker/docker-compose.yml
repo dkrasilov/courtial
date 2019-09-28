@@ -8,6 +8,6 @@ services:
       POSTGRES_USER: dbuser
 
   users:
-    build: ../courtial-user-service
+    build: ../users
     links:
       - postgres

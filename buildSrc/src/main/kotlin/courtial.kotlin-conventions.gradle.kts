@@ -5,6 +5,7 @@ plugins {
     // coverage
     jacoco
     id("org.sonarqube")
+
     kotlin("jvm")
     kotlin("plugin.spring")
     kotlin("plugin.jpa")
@@ -12,9 +13,6 @@ plugins {
 
 repositories {
     mavenLocal()
-    maven {
-        url = uri("https://artifactory.gitlab.bcs.ru/artifactory/bcs-main")
-    }
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
     }
@@ -75,9 +73,9 @@ tasks.jacocoTestReport {
     dependsOn(tasks.test) // tests are required to run before generating the report
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=enable")
-        jvmTarget = "11"
-    }
-}
+//tasks.withType<KotlinCompile> {
+//    kotlinOptions {
+//        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=enable")
+//        jvmTarget = "11"
+//    }
+//}

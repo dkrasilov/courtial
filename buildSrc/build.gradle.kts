@@ -19,3 +19,10 @@ dependencies {
     implementation("gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:2.2.4")
 
 }
+
+repositories {
+    maven {
+        url = uri("https://plugins.gradle.org/m2/")
+    }
+    mavenCentral()
+}

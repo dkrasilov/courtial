@@ -1,7 +1,7 @@
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
-    id("ru.sfera.common-conventions")
+    java
     id("org.springframework.boot")
 
     // git properties to actuator
@@ -27,7 +27,7 @@ dependencies {
 
     implementation("io.micrometer:micrometer-registry-prometheus")
 
-    implementation(project(":backend:libs:logging"))
+//    implementation(project(":backend:libs:logging"))
 
     // ? оно надо здесь?
     implementation("io.springfox:springfox-swagger-ui:3.0.0")
@@ -35,7 +35,7 @@ dependencies {
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     // Testing
-    testImplementation(project(":backend:libs:testing"))
+//    testImplementation(project(":backend:libs:testing"))
 }
 
 

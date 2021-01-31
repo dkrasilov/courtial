@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   postgres:
@@ -7,7 +7,24 @@ services:
       POSTGRES_PASSWORD: dbpass
       POSTGRES_USER: dbuser
 
-  users:
-    build: ../users
-    links:
-      - postgres
+  axonserver:
+    image: axoniq/axonserver:4.4.9
+    hostname: axonserver
+    volumes:
+      - axonserver-data:/data
+      - axonserver-events:/eventdata
+      - axonserver-config:/config:ro
+    ports:
+      - '8024:8024'
+      - '8124:8124'
+      - '8224:8224'
+    networks:
+      - courtial
+
+volumes:
+  axonserver-data:
+  axonserver-events:
+  axonserver-config:
+
+networks:
+  courtial:
